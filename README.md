@@ -1,1 +1,1 @@
-# js-portfolio
+# Mini-portfolio using webpack to optimize it
