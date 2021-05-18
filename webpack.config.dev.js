@@ -22,7 +22,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     // Added hash to files
     filename: '[name].[contenthash].js', /* Name of the compile output file i.e main.js, bundle.js, hash...*/
-    assetModuleFilename: "assets/images/[hash][ext][query]",// --> this is the same as 'generator' in asset rule
+    assetModuleFilename: "assets/images/[hash][ext][query]",// --> this is the same as 'generator' in asset rule    
   },
   /* Mode(env) to run the file */
   mode: 'development',
@@ -67,36 +67,28 @@ module.exports = {
       /* Rule for images, no installation need */
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: 'asset/resource',
+        type: "asset/resource",
         /* to select the output folder on dist */
         // generator: {
-        //   filename: 'assets/images/[hash][ext][query]'
+        //   filename: "assets/images/[hash][ext][query]"
         // }
       },
       /* Rules for fonts, files, urls */
-      // {
-      //   test: /\.(woff|woff2)$/,
-      //   use: {
-      //     loader: "url-loader",
-      //     options: {
-            /* to enable or disable base64 files */
-      //       limit: 10000,
-      //       mimetype: "application/font-woff",
-      //       name: "[name].[contenthash].[ext]",
-      //       outputPath: "./assets/fonts",
-      //       publicPath: "../assets/fonts",
-      //       esModule: false,
-      //     }
-      //   }
-      // },
-      /* or this without extra loaders */
       {
-        test: /\.(woff|woff2)$/,
-        type: "asset/resource",
-        generator: {
-          filename: "./fonts/[name].[ext]"
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        use: {
+          loader: "url-loader",
+          options: {
+        /* to enable or disable base64 files */
+            limit: 10000,
+            mimetype: "application/font-woff",
+            name: "[name].[contenthash].[ext]",
+            outputPath: "./assets/fonts",
+            publicPath: "../assets/fonts",
+            esModule: false,
+          }
         }
-      }
+      },
     ]
   },
   plugins: [

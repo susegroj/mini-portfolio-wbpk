@@ -83,29 +83,21 @@ module.exports = {
         // }
       },
       /* Rules for fonts, files, urls */
-      // {
-      //   test: /\.(woff|woff2)$/,
-      //   use: {
-      //     loader: "url-loader",
-      //     options: {
-            /* to enable or disable base64 files */
-      //       limit: 10000,
-      //       mimetype: "application/font-woff",
-      //       name: "[name].[contenthash].[ext]",
-      //       outputPath: "./assets/fonts",
-      //       publicPath: "../assets/fonts",
-      //       esModule: false,
-      //     }
-      //   }
-      // },
-      /* or this without extra loaders */
       {
-        test: /\.(woff|woff2)$/,
-        type: "asset/resource",
-        generator: {
-          filename: "./fonts/[name].[ext]"
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        use: {
+          loader: "url-loader",
+          options: {
+        /* to enable or disable base64 files */
+            limit: 10000,
+            mimetype: "application/font-woff",
+            name: "[name].[contenthash].[ext]",
+            outputPath: "./assets/fonts",
+            publicPath: "../assets/fonts",
+            esModule: false,
+          }
         }
-      }
+      },
     ]
   },
   plugins: [
