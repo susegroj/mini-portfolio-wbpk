@@ -10,6 +10,9 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 /*Adding dot env for env variables */
 const DotEnv = require('dotenv-webpack');
 
+/* Add the bundle analyzer */
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+
 module.exports = {
   /* Entry point */
   entry: './src/index.js',
@@ -106,7 +109,8 @@ module.exports = {
       // this is the output source 
       filename: "assets/[name].[contenthash].css"
     }),
-    new DotEnv()
+    new DotEnv(),
+    new BundleAnalyzerPlugin(),
     /* To copy files into dist
       Used for images fis, then we implement the asset loader from webpack
     */
