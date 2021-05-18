@@ -26,8 +26,11 @@ module.exports = {
   },
   /* Mode(env) to run the file */
   mode: 'development',
-  /* watch mode for dev */
-  watch: true,
+  /* watch mode for dev 
+    ! If you use serve command in package.json for devServer
+    ! you don't need to use the line below
+  */
+  // watch: true,
   /* what are the file extensions to work with  */
   resolve: {
     extensions: ['.js'],
@@ -116,5 +119,16 @@ module.exports = {
     //     }
     //   ]
     // })
-  ], 
+  ],
+  /* In order to get this working, you should install webpack-dev-server and add a script in package.json */
+  devServer: {
+    contentBase: path.join(__dirname,'dist'),
+    compress: true,
+    historyApiFallback: true,
+    port: 3005,
+    host: '0.0.0.0',
+
+    open: true,
+
+  }
 };
