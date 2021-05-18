@@ -10,7 +10,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 /*Adding dot env for env variables */
 const DotEnv = require('dotenv-webpack');
 
-/* Add the bundle analyzer */
+/* Add the bundle analyzer YOU NEED TO ADD command in package.json */
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 module.exports = {
@@ -29,6 +29,8 @@ module.exports = {
   },
   /* Mode(env) to run the file */
   mode: 'development',
+  /* this make a map for code in order you can debug on source the code as you program */
+  devtool: "source-map",
   /* watch mode for dev 
     ! If you use serve command in package.json for devServer
     ! you don't need to use the line below
