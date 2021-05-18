@@ -113,7 +113,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       inject: true,
       template: './public/index.html',
-      filename: './index.[contenthash].html'
+      filename: './index.html'
     }),
     /* Compile & compress css files */
     new MiniCssExtractPlugin({
