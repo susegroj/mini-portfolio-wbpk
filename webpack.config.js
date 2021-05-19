@@ -14,7 +14,7 @@ const DotEnv = require('dotenv-webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 /*
-  ! The Terser Minimizer are not longer required for webpack v5 it comes by default
+  ! The Terser Minimizer you not need to install it for webpack v5 it comes by default
  */
 /* Add const to minify the css bundle */
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
